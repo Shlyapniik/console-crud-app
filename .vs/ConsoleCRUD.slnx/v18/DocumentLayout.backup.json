@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\roma2\\source\\repos\\ConsoleCRUD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EA142351-295C-D6C9-A06A-C08F3105BD06}|ConsoleCRUD\\ConsoleCRUD.csproj|c:\\users\\roma2\\source\\repos\\consolecrud\\consolecrud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA142351-295C-D6C9-A06A-C08F3105BD06}|ConsoleCRUD\\ConsoleCRUD.csproj|solutionrelative:consolecrud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\roma2\\source\\repos\\ConsoleCRUD\\ConsoleCRUD\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleCRUD\\Program.cs",
+              "ToolTip": "C:\\Users\\roma2\\source\\repos\\ConsoleCRUD\\ConsoleCRUD\\Program.cs",
+              "RelativeToolTip": "ConsoleCRUD\\Program.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAQwFwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:18:43.856Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

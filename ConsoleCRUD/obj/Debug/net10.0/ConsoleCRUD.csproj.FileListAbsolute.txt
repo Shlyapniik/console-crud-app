@@ -1,0 +1,14 @@
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\bin\Debug\net10.0\ConsoleCRUD.exe
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\bin\Debug\net10.0\ConsoleCRUD.deps.json
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\bin\Debug\net10.0\ConsoleCRUD.runtimeconfig.json
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\bin\Debug\net10.0\ConsoleCRUD.dll
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\bin\Debug\net10.0\ConsoleCRUD.pdb
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ConsoleCRUD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ConsoleCRUD.AssemblyInfoInputs.cache
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ConsoleCRUD.AssemblyInfo.cs
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ConsoleCRUD.csproj.CoreCompileInputs.cache
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ConsoleCRUD.dll
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\refint\ConsoleCRUD.dll
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ConsoleCRUD.pdb
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ConsoleCRUD.genruntimeconfig.cache
+C:\Users\roma2\source\repos\ConsoleCRUD\ConsoleCRUD\obj\Debug\net10.0\ref\ConsoleCRUD.dll
