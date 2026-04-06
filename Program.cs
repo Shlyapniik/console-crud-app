@@ -1,7 +1,15 @@
+enum TaskStatus
+{
+    Pending,
+    InProgress,        
+    Done
+}
+
 class TaskItem
 {
+    
     public string Title {get; set;}
-    public string Status {get; set;}
+    public TaskStatus Status {get; set;}
 }
 
 class Program
@@ -60,7 +68,7 @@ class Program
         taskList.Add(new TaskItem
         {
             Title = task,
-            Status = "Pending"
+            Status = TaskStatus.Pending
         });
     }
 
@@ -83,7 +91,7 @@ class Program
             return;
         }
    
-        taskList[index] = new TaskItem{Title = newTask, Status = "Pending"};
+        taskList[index].Title = newTask;
     }
 
     public static void DeleteTask()
@@ -137,6 +145,12 @@ class Program
 
     public static void ChangeStatus()
     {
+        if (taskList.Count == 0)
+        {
+            Console.WriteLine("No tasks yet");
+            return;
+        }
+
         int index = ReadInt("Write the index of the task, what you want to changed: ");
 
         if (index < 0 || index >= taskList.Count)
@@ -145,15 +159,27 @@ class Program
             return;
         }
 
-        string newStatus = Console.ReadLine(); 
+        int choice = ReadInt(
+            "Choose the new status:\n"+
+            "1. Pending\n"+
+            "2. InProgress\n"+
+            "3. Done\n");
 
-        if (string.IsNullOrWhiteSpace(newStatus))
+        switch (choice)
         {
-            Console.WriteLine("Cannot change to empty status");
-            return;
+            case 1:
+                taskList[index].Status = TaskStatus.Pending;
+                break;
+            case 2:
+                taskList[index].Status = TaskStatus.InProgress;
+                break;
+            case 3:
+                taskList[index].Status = TaskStatus.Done;
+                break;
+            default:
+                Console.WriteLine("Invalid status");
+                break;
         }
-
-        taskList[index].Status = newStatus;
     }
 }
 
