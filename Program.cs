@@ -1,9 +1,12 @@
-using System;
-using System.Diagnostics;
+class TaskItem
+{
+    public string Title {get; set;}
+    public string Status {get; set;}
+}
 
 class Program
 {
-    static List<string> taskList = new List<string> {"task1", "task2", "task3"};
+    static List<TaskItem> taskList = new List<TaskItem>();
     public static void Main()
     {
         ShowMenu();
@@ -35,6 +38,9 @@ class Program
                 Console.WriteLine("List of tasks:");
                 ShowList();
                 break;
+            case 5:
+                ChangeStatus();
+                break;
             default:
                 break;
         }
@@ -45,13 +51,17 @@ class Program
         Console.Write("Write the new task, what you want to added: ");
         string task = Console.ReadLine();
 
-        if (string.IsNullOrEmpty(task))
+        if (string.IsNullOrWhiteSpace(task))
         {
             Console.WriteLine("Cannot add empty task");
             return;
         }
 
-        taskList.Add(task);
+        taskList.Add(new TaskItem
+        {
+            Title = task,
+            Status = "Pending"
+        });
     }
 
     public static void EditTask()
@@ -67,18 +77,24 @@ class Program
         Console.Write("Write the new task: ");
         string newTask = Console.ReadLine();
 
-        if (string.IsNullOrEmpty(newTask))
+        if (string.IsNullOrWhiteSpace(newTask))
         {
             Console.WriteLine("Cannot add empty task");
             return;
         }
    
-        taskList[index] = newTask;
+        taskList[index] = new TaskItem{Title = newTask, Status = "Pending"};
     }
 
     public static void DeleteTask()
     {
         int index = ReadInt("Write the index of the task, what you want to changed: ");
+
+        if (index < 0 || index >= taskList.Count)
+        {
+            Console.WriteLine("Wrong index");
+            return;
+        }
 
         taskList.RemoveAt(index);
     }
@@ -91,9 +107,9 @@ class Program
             return;
         }
 
-        for (int i = 0; i <= taskList.Count-1; i++)
+        for (int i = 0; i < taskList.Count; i++)
         {
-            Console.WriteLine($"{i}. {taskList[i]}");
+            Console.WriteLine($"{i}. {taskList[i].Title} - {taskList[i].Status}");
         }
     }
 
@@ -104,6 +120,7 @@ class Program
             "2. Edit task.\n" +
             "3. Remove task.\n" +
             "4. Show tasks list.\n"+
+            "5. Change status of task.\n"+
             "0. Exit program.\n");
     }
 
@@ -113,9 +130,30 @@ class Program
         Console.Write(message);
         while (!int.TryParse(Console.ReadLine(), out number))
         {
-            Console.Write("Invalid input. Try again");
+            Console.Write("Invalid input. Try again: ");
         }
         return number;
+    }
+
+    public static void ChangeStatus()
+    {
+        int index = ReadInt("Write the index of the task, what you want to changed: ");
+
+        if (index < 0 || index >= taskList.Count)
+        {
+            Console.WriteLine("Wrong index");
+            return;
+        }
+
+        string newStatus = Console.ReadLine(); 
+
+        if (string.IsNullOrWhiteSpace(newStatus))
+        {
+            Console.WriteLine("Cannot change to empty status");
+            return;
+        }
+
+        taskList[index].Status = newStatus;
     }
 }
 
