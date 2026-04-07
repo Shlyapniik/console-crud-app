@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 enum TaskStatus
 {
     Pending,
@@ -34,20 +40,33 @@ class Program
         switch (userInput)
         {
             case 1:
+                Console.Clear();
                 AddTask();
                 break;
             case 2:
+                Console.Clear();
                 EditTask();
                 break;
             case 3:
+                Console.Clear();
                 DeleteTask();
                 break;
             case 4:
+                Console.Clear();
                 Console.WriteLine("List of tasks:");
                 ShowList();
                 break;
             case 5:
+                Console.Clear();
                 ChangeStatus();
+                break;
+            case 6:
+                Console.Clear();
+                SaveToFile();
+                break;
+            case 7:
+                Console.Clear();
+                LoadFromFile();
                 break;
             default:
                 break;
@@ -129,6 +148,8 @@ class Program
             "3. Remove task.\n" +
             "4. Show tasks list.\n"+
             "5. Change status of task.\n"+
+            "6. Save tasks list in json file.\n"+
+            "7. Load tasks from json file.\n"+
             "0. Exit program.\n");
     }
 
@@ -180,6 +201,54 @@ class Program
                 Console.WriteLine("Invalid status");
                 break;
         }
+    }
+
+    public static void SaveToFile()
+    {
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            TypeInfoResolver = new DefaultJsonTypeInfoResolver(),
+            Converters = { new JsonStringEnumConverter() }
+        };
+
+        string jsonString = JsonSerializer.Serialize(taskList, options);
+        File.WriteAllText("tasks.json", jsonString);
+    }
+
+    public static void LoadFromFile()
+    {
+        string jsonPath = "tasks.json";
+
+        if (!File.Exists(jsonPath))
+        {
+            Console.WriteLine("No tasks in file yet.");
+            return;
+        }
+
+        try
+        {
+            string jsonString = File.ReadAllText(jsonPath);
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                TypeInfoResolver = new DefaultJsonTypeInfoResolver(),
+                Converters = { new JsonStringEnumConverter() }
+            };
+
+            taskList = JsonSerializer.Deserialize<List<TaskItem>>(jsonString, options);
+            taskList ??= new List<TaskItem>();
+
+            Console.WriteLine("Tasks loaded.");
+        }
+        catch
+        {
+            Console.WriteLine("Error when reading file.");
+            taskList = new List<TaskItem>();
+        }
+
+        
     }
 }
 
